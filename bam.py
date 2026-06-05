@@ -106,16 +106,16 @@ def ParseCmdLine():
                         help    = 'timestep (s): -t 360')
 
     parser.add_argument('-S', '--start',
-                        dest    = 'start', type = str, 
-                        action  = 'store', 
-                        default = '1999-9-1',
-                        help    = 'start date time: -S "1999-9-1"')
+                        dest    = 'start', type = str,
+                        action  = 'store',
+                        default = _POR_START,
+                        help    = f'start date time: -S "{_POR_START}"')
 
     parser.add_argument('-E', '--end',
                         dest    = 'end', type = str, 
                         action  = 'store', 
                         default = _POR_END,
-                        help    = 'End date time: -E "2026-4-30"')
+                        help    = f'End date time: -E "{_POR_END}"')
 
     parser.add_argument('-vt', '--velocity_tolerance',
                         dest    = 'velocity_tol', type = float, 
@@ -161,15 +161,13 @@ def ParseCmdLine():
                     dest    = 'basinTide', type = str, 
                     action  = 'store', 
                     default = _F_TIDE,
-                    help    = 'Basin tide boundary data files: -bt ' +\
-                              'data/Boundary/Basin_Tide_Boundary_2000_2026.csv')
+                    help    = f'Basin tide boundary data files: -bt {_F_TIDE}')
 
     parser.add_argument('-br', '--basinRain',
                         dest    = 'basinRain', type = str, 
                         action  = 'store', 
                         default = _F_RAIN,
-                        help    = 'Daily rain data file: -br data/Rain/' +\
-                                  'DailyRainFilled_cm_1999-9-1_2026-4-30.csv' )
+                        help    = f'Daily rain data file: -br {_F_RAIN}' )
 
     parser.add_argument('-bc', '--basinBCFile',
                         dest    = 'basinBCFile', type = str, 
@@ -196,9 +194,7 @@ def ParseCmdLine():
                         dest    = 'basinStageRunoff', type = str, 
                         action  = 'store', 
                         default = _F_RUNOFF,
-                        help    = 'Daily runoff EDEN stage data file: ' +\
-                                  '-bR data/Runoff/' +\
-                                  'EDEN_Stage_OffsetMSL_1999-9-1_2026-4-30.csv' )
+                        help    = f'Daily runoff EDEN stage data file: -bR {_F_RUNOFF}' )
 
     parser.add_argument('-bS', '--basinStageRunoffMap',
                         dest    = 'basinStageRunoffMap', type = str, 
@@ -211,16 +207,13 @@ def ParseCmdLine():
                         dest    = 'basinStage', type = str, 
                         action  = 'store', 
                         default = _F_STAGE,
-                        help  = 'Daily stage data file: -bs data/Stage/'+\
-                                'DailyStage_1999-9-1_2026-4-30.csv' )
+                        help    = f'Daily stage data file: -bs {_F_STAGE}' )
 
     parser.add_argument('-st', '--temperature',
                         dest    = 'surfaceTemp', type = str, 
                         action  = 'store', 
                         default = _F_TEMP,
-                        help    = 'Temperature data file: -st ' +\
-                                  'data/Temperature/' +\
-                                  'MaxTemp_Filled_1999-9-1_2026-4-30.csv' )
+                        help    = f'Temperature data file: -st {_F_TEMP}' )
 
     parser.add_argument('-rt', '--reference_temperature',
                         dest    = 'reference_temperature', type = float, 
@@ -237,8 +230,7 @@ def ParseCmdLine():
                         dest    = 'ET', type = str, 
                         action  = 'store', 
                         default = _F_ET,
-                        help    = 'PET data file: -et ' +\
-                                  'data/ET/PET_1999-9-1_2026-4-30.csv' )
+                        help    = f'PET data file: -et {_F_ET}' )
 
     parser.add_argument('-es', '--ET scale',
                         dest    = 'ET_scale', type = float, 
@@ -276,8 +268,7 @@ def ParseCmdLine():
                         dest    = 'salinityFile', type = str, 
                         action  = 'store', 
                         default = _F_SALINITY,
-                        help  = 'Daily salinity data file: -sf data/Salinity/'+\
-                                'DailySalinityFilled_1999-9-1_2026-4-30.csv' )
+                        help    = f'Daily salinity data file: -sf {_F_SALINITY}' )
 
     parser.add_argument('-msl', '--seasonalMSL',
                         dest    = 'seasonalMSL', type = str, 
